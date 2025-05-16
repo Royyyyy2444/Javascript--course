@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    /* CSS styles for dark mode */
+    body {
+      background-color: #121212; /* Dark background */
+      color: #ffffff; /* White text */
+      font-family: Arial, sans-serif; /* Optional: Set a font */
+    }
+
+    a {
+      color: #1e90ff; /* Optional: Make links a lighter blue */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline; /* Optional: Underline links on hover */
+    }
+
+    table {
+      border-color: #ffffff; /* White borders for tables */
+    }
+
+    th, td {
+      color: #ffffff; /* White text inside tables */
+    }
+  body {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+    font-family: Arial, sans-serif; /* Optional: Set a font */
+  }
+
+  a {
+    color: #1e90ff; /* Optional: Make links a lighter blue */
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline; /* Optional: Underline links on hover */
+  }
+
+  table {
+    border-color: #ffffff; /* White borders for tables */
+  }
+
+  th, td {
+    color: #ffffff; /* White text inside tables */
+  }
+  </style>
+  <h1>Welcome to Your HTML File</h1>
+  <p>This is a basic HTML template.</p>
+  <!-- Code to Add List of options tag -->
+  <table border="1">
+    <caption>My First Table</caption>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Duration</th>
+        <th>Works</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>03:00</td>
+        <td>3 hours</td>
+        <td>Waking up</td>
+      </tr>
+      <tr>
+        <td>06:00</td>
+        <td>3 hours</td>
+        <td>Working</td>
+      </tr>
+      <tr>
+        <td>9:00</td>
+        <td>3 hours</td>
+        <td>Working</td>
+      </tr>
+    </tbody>
+  </table>
+  <button button type></button>
+  <option value="">
+    
+  </option>
+    <!-- Code to Add List of options tag -->
+<h2>Select an Option</h2>
+<select name="options" id="options" required>
+  <option value="option11">Male</option>
+  <option value="option2">Female</option>
+  <option value="option3">Binary</option>
+  <option value="option4">Choose not to answer</option>
+</select>
+<h2>Select an Option</h2>
+<select name="options" id="options" required>
+  <option value="option1">North Korea</option>
+  <option value="option2">Russia</option>
+  <option value="option4">None of the Above</option>
+</select>
+
+<!-- Code to add textbox tag -->
+  <p><h2>Enter Your Age</h2>
+  <input type="number" id="yourName" name="name" placeholder="Enter your Age"> in years</p>
+
+<!-- Code to Add more countries as needed -->
+  <h2>Select a Country</h2>
+  <select name="countries" id="countries">
+    <option value="us">United States</option>
+    <option value="ca">Canada</option>
+    <option value="gb">United Kingdom</option>
+    <option value="au">Australia</option>
+    <option value="in">India</option>
+    <option value="cn">China</option>
+    <option value="jp">Japan</option>
+    <option value="de">Germany</option>
+    <option value="fr">France</option>
+    <option value="br">Brazil</option>
+    <!-- Add more countries as needed -->
+  </select>
+  
+  <!-- Add this link to your HTML file -->
+  
+
+  <script>
+    // Fetch countries from the REST Countries API
+    fetch('https://restcountries.com/v3.1/all')
+      .then(response => response.json())
+      .then(data => {
+            // Sort countries alphabetically by their common name
+        data.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        const select = document.getElementById('countries');
+        select.innerHTML = ''; // Clear the loading option
+        data.forEach(country => {
+          const option = document.createElement('option');
+          option.value = country.cca2; // Country code
+          option.textContent = country.name.common; // Country name
+          select.appendChild(option);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching countries:', error);
+        const select = document.getElementById('countries');
+        select.innerHTML = '<option value="">Failed to load countries</option>';
+      });
+
+      // Add an event listener to handle changes in the select dropdown
+      document.getElementById('countries').addEventListener('change', function () {
+        const selectedValue = this.value;
+        if (selectedValue) {
+          console.log(`You selected the country with code: ${selectedValue}`);
+        } else {
+          console.log('No country selected.');
+        }
+      });
+  </script>
+</body>
+</html>

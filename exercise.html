@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercises</title>
+    <style>
+       .lightbrown{
+        background-color: lightsalmon;
+        
+       }
+       .yellow{
+        background-color: yellow;
+        
+       }
+    </style>
+  </head>
+  <body>
+    <button>Click</button>
+    <br>
+    <button>Mike</button>
+    <button>Ice-Cream</button>
+    <p>
+      Hello, World!
+    </p>
+    <p>Today, I went to the grocery to buy some eggs and vegetables.</p>
+    <br>
+    <p>
+      Adults Plain Cotton T-shirt
+      <br>
+      <br>
+      Price: $7.99
+    </p>
+    <button title="Added" class="yellow" onclick="alert('Added'); 
+      cartQuantity++
+      console.log(`Cart Quantity : ${cartQuantity + 1}`);">
+      Add to cart
+    </button>
+    <button title="Get now" class="lightbrown"onclick="console.log('Loading'); alert('Purchased')">
+      Buy now
+    </button>
+
+    <button onclick="
+      cartQuantity+=2
+      console.log(`Cart Quantity : ${cartQuantity}`)">+2
+    </button>
+    <button onclick="
+      cartQuantity+=3
+      console.log(`Cart Quantity : ${cartQuantity}`)">+3
+    </button>
+    <button onclick="
+      cartQuantity = 0
+      console.log(`Cart Quantity : ${cartQuantity}`)
+      console.log('Cart was reset')">Reset
+    </button>
+    <button onclick="
+      cartQuantity-=1
+      console.log(`Cart Quantity : ${cartQuantity}`)">-1
+    </button>
+    <button onclick="
+      cartQuantity-=2
+      console.log(`Cart Quantity : ${cartQuantity}`)">-2
+    </button>
+
+    
+    <script>
+      console.log('Welcome')
+      let cartQuantity = 0
+      const name = 'Mike'
+      let cost = 5+(3*2)+9
+      let totCost = (cost*0.1) + cost
+      console.log(`My name is ${name}`);
+      console.log(`I ordered food that cost $${cost}`)
+      console.log(`But, the total cost was ${totCost} which included vat`)
+
+      console.log()
+    </script>
+  </body>
+</html>

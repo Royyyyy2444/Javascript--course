@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>New Tab</title>
+    <style>
+      body {
+        background: #FFFFFF;
+        margin: 0;
+      }
+
+      #backgroundImage {
+        border: none;
+        height: 100%;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+      }
+
+      [show-background-image] #backgroundImage {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <br>
+    <h1>Hello World</h1>
+    <p>This is my first website.</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p><em >Google</em></p>
+
+    <script>
+      const THREE = require('three');
+const { createCanvas } = require('canvas');
+
+// Create a scene
+const scene = new THREE.Scene();
+
+// Set up a camera
+const camera = new THREE.PerspectiveCamera(75, 2, 0.1, 1000);
+camera.position.z = 5;
+
+// Set up a renderer
+const canvas = createCanvas(800, 600);
+const renderer = new THREE.WebGLRenderer({ canvas });
+
+// Add a light
+const light = new THREE.PointLight(0xffffff, 1, 100);
+light.position.set(10, 10, 10);
+scene.add(light);
+
+// Create 3D text
+const loader = new THREE.FontLoader();
+loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', (font) => {
+  const textGeometry = new THREE.TextGeometry('MAN', {
+    font: font,
+    size: 1,
+    height: 0.5,
+    curveSegments: 12,
+    bevelEnabled: true,
+    bevelThickness: 0.03,
+    bevelSize: 0.02,
+    bevelSegments: 5,
+  });
+
+  const textMaterial = new THREE.MeshStandardMaterial({ color: 0xff6347 });
+  const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+  scene.add(textMesh);
+
+  // Render the scene
+  renderer.render(scene, camera);
+
+  // Save the output as an image
+  const fs = require('fs');
+  const out = fs.createWriteStream('3d-text.png');
+  const stream = canvas.createPNGStream();
+  stream.pipe(out);
+  out.on('finish', () => console.log('3D text saved as 3d-text.png'));
+});
+    </script>
+  </body>
+</html>      

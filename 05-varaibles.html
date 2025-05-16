@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Variables
+    </title>
+    <style>
+      body {
+        background: #FFFFFF;
+        margin: 0;
+      }
+
+      #backgroundImage {
+        border: none;
+        height: 100%;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        visibility: hidden;
+        width: 100%;
+      }
+
+      [show-background-image] #backgroundImage {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <button>New Tab</button>
+    <a href="https://www.exness.com">
+      <button>Button</button>
+    </a>
+    <button title="Added" class="yellow" onclick="alert('Added'); 
+      cartQuantity++
+      console.log(`Cart Quantity : ${cartQuantity + 1}`);">
+      Add to cart
+    </button>
+    <button onclick="
+      cartQuantity+=2
+      console.log(`Cart Quantity = ${cartQuantity}`);">2
+    </button>
+    
+    <button onclick="
+      cartQuantity+=3
+      console.log(`Cart Quantity : ${cartQuantity}`);">+3
+    </button>
+
+    <button onclick="
+        cartQuantity=0;
+        console.log('Cart was Reset'); 
+        console.log(`Cart Quantity : ${cartQuantity}`);">Reset
+    </button>
+
+    <script>
+      //This is a comment
+      /*alert('hello')*/
+      let variable1 = 3;
+      console.log(variable1)
+
+      let cartQuantity = 0;
+
+      let calculation = 2+2;
+      console.log(calculation);
+      console.log(calculation + 2)
+
+      //using const; which can never be changed
+      const variable2 = 8
+      
+      //using var; the standard for Javascript and can be changed 
+      var variable4 = 6
+
+      //knowning the type of variable used
+      console.log(typeof variable1)
+      console.log(typeof calculation)
+      
+    </script>
+  </body>
+</html>
